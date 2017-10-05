@@ -1,4 +1,4 @@
-# salt-wpcli
+# wpcli-formula
 wp-cli Salt formula
 
-See pillar.example for configuration options
+
