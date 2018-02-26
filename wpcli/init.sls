@@ -6,10 +6,10 @@
   file.symlink:
     - target: /opt/wp-cli.phar
     - require:
-      - file: /opt/wp-cli.phar
+      - cmd: /opt/wp-cli.phar
 
 /usr/local/bin/wp:
   file.symlink:
     - target: /opt/wp-cli.phar
     - require:
-      - file: /opt/wp-cli.phar
+      - cmd: /opt/wp-cli.phar
