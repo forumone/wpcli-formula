@@ -1,15 +1,19 @@
 /opt/wp-cli.phar:
-  cmd.run:
-    - name: wget https://github.com/wp-cli/wp-cli/releases/download/v1.3.0/wp-cli-1.3.0.phar -O /opt/wp-cli.phar && chmod +x /opt/wp-cli.phar
+  file.managed:
+    - source: https://github.com/wp-cli/wp-cli/releases/download/v1.5.0/wp-cli-1.5.0.phar
+    - source_hash: https://github.com/wp-cli/wp-cli/releases/download/v1.5.0/wp-cli-1.5.0.phar.sha512
+    - user: root
+    - group: root
+    - mode: 0755
 
 /usr/local/bin/wp-cli:
   file.symlink:
     - target: /opt/wp-cli.phar
     - require:
-      - cmd: /opt/wp-cli.phar
+      - file: /opt/wp-cli.phar
 
 /usr/local/bin/wp:
   file.symlink:
     - target: /opt/wp-cli.phar
     - require:
-      - cmd: /opt/wp-cli.phar
+      - file: /opt/wp-cli.phar
